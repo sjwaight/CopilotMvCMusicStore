@@ -1,0 +1,22 @@
+﻿@* add a model of a single genre *@
+@model MvcMusicStore.Models.Genre
+@* add a viewdata title of Genre *@
+@{
+	ViewData["Title"] = "Genre";
+}
+@* add a div with css class genre and an unordered list with css class album-list *@
+<div class="genre">
+	<h3>@Model.Name</h3>
+	<ul class="album-list">
+		@* loop through each album in the genre and display the album title *@
+		@foreach (var album in Model.Albums)
+		{
+			@* <li>@album.Title</li> *@
+			@* provide a link to the Detail view for the Album, using the artwork as the item linked *@
+<li>
+				@Html.ActionLink(album.Title, "Details", "Store", new { id = album.AlbumId }, new { @class = "album-link" })
+				<img src="@album.AlbumArtUrl" alt="@album.Title" />
+</li>
+		}
+	</ul>
+</div>

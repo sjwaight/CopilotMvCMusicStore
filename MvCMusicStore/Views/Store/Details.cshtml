@@ -1,0 +1,27 @@
+﻿@model MvcMusicStore.Models.Album
+
+@{
+    ViewData["Title"] = "Album" + Model.Title; ;
+}
+
+<h2>@Model.Title</h2>
+
+<p>
+    <img alt="@Model.Title" src="@Model.AlbumArtUrl" />
+</p>
+
+<div id="album-details">
+    <p>
+        <em>Genre:</em>
+        @Model.Genre.Name
+    </p>
+    <p>
+        <em>Artist:</em>
+        @Model.Artist.Name
+    </p>
+    <p>
+        <em>Price:</em>
+        @* display price formatted as a currency *@
+        @Model.Price.ToString("c")
+    </p>
+</div>
